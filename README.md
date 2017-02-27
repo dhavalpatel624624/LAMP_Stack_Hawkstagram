@@ -3,10 +3,10 @@ ITMT 430 Hawkstagram Project
 
 Jason Hedlund- Security/UI
 
-Dhaval Patel - Project Management/Developer
+Dhaval Patel - Operations/Developer
 
 Jacquelle Rowell - UI/Project Management
 
-Lap-Heng Keung - Developer/Operations
+Lap-Heng Keung - Developer/Project Management
 
 Doug Rubio - Security/Operations

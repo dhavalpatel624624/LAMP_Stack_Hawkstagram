@@ -1,0 +1,14 @@
+Hawkstagram
+Tuesday, January 10, 2017
+4:09 PM
+ 
+Analyze and reverse engineer sites similar to Flicker, Instagram, and any other photo sharing site in order to create a photo tagging, sharing, and resizing application
+ 
+* Create a user account and log in mechanism
+* Create an admin section for processing uploads
+* Create a tagging system for each photo
+* Create photo manipulation tools (multiple size exports/downloads)
+* Create a category separation (pictures with releases and without)
+* Create anonymous functionality (site must work with people not logged in (create a category that is public domain)
+ 
+ 

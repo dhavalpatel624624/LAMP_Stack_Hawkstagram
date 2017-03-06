@@ -11,13 +11,19 @@ Lap-Heng Keung - Developer/Project Management
 
 Doug Rubio - Security/Operations
 
-# To get it setup
-1. Make sure you have already run the "packer build .json" so you have your Ubuntu 14.04.5 box 
-2. Spin up your vagrant boxes (i.e database and webserver)
+# Packer Setup
+1. Go into the install folder - "packer build ubuntu-webserver" or "packer build ubuntu-database"
+2. Let packer run, you should now have two box images in the build folder, one for the database and one for webserver
 3. "vagrant box add packer_output.box --name boxname"
-4. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database/webserver" depending on how you name it
-5. config.vm.provision :shell, path: "bootstrap.sh"
-6. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
-7. "vagrant ssh" change your /etc/hosts and /etc/hostname files 
-8. Look at the credentials of the provisioner file, those are defaults, change them as you like
 
+# To get it setup
+1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database/webserver" depending on how you name it
+2. config.vm.provision :shell, path: "bootstrap.sh"
+3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
+4. Look at the credentials of the provisioner file, those are defaults, change them as you like
+5. You can either spinup the database's phpmyadmin or directly go into mysql and import database schema from file "hawkstagram.sql"
+
+# Reference Links
+Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/
+Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table
+Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258

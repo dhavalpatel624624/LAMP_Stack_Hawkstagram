@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet');
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0;  padding: 0;  border: 0;  font-size: 100%; font: inherit; vertical-align: baseline;  }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;} table { border-collapse: collapse; border-spacing: 0;}
+
+html{
+    height: 100%;
+}
+h1{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 80px;
+    font-weight: 500;
+    color: 	#Cf0015;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 2%;
+}
+h2{
+    font-family: 'Josefin Slab', serif;
+    font-size: 200%;
+    color: #181c16;
+    margin: 2%;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+
+}
+h3{
+    font-family: 'Josefin Slab', serif;
+    font-size: 250%;
+    color: #181c16;
+    margin-top: 5%;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+}
+body {
+    font-family: 'Josefin Slab', serif;
+    font-size: 16px;
+    background: #edeae6 url("images/innovation.jpg") no-repeat center ;
+    background-size: cover;
+}
+input{
+    float: none;
+}
+.overlay{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2));
+    background-size: cover;
+    height: 75vh;
+    width: 100%;
+}
+.sidebar{
+    border-right: 2px dashed #181c16;
+}
+.profiledetails{
+    font-size: 18px;
+    margin-top: 15px;
+}
+.container {
+    width: 100%;
+    height: 200px;
+    margin: auto;
+    padding: 10px;
+}
+
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.form-box{
+    margin: 5%;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.55);
+
+}
+.IITSignIn{
+    float: left;
+    position: relative;
+    min-height: 125px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 90%;
+}
+.outsideSign-In{
+    float: left;
+    position: relative;
+    min-height: 125px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 90%;
+}
+.col {
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+
+    -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px; /* Firefox */
+    column-gap: 10px;
+}
+
+.colButton{
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    margin: 5%;
+}
+#login{
+    float: left;
+}
+#form2{
+    margin: 7%;
+}
+
+@media (max-width: 850px) {
+    .col {
+        -moz-column-count: auto;
+        -webkit-column-count: auto;
+        column-count: auto;
+    }
+    h1{
+        font-size: 300%
+    }
+    .IITSignIn{
+    }
+    .outsideSign-In{
+    }
+    #boxes{
+        height: auto;
+    }
+}

@@ -23,3 +23,7 @@ Doug Rubio - Security/Operations
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. You can either spinup the database's phpmyadmin or directly go into mysql and import database schema from file "hawkstagram.sql"
 
+# Reference Links
+Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/
+Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table
+Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258

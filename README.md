@@ -21,4 +21,5 @@ Doug Rubio - Security/Operations
 2. config.vm.provision :shell, path: "bootstrap.sh"
 3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
+5. You can either spinup the database's phpmyadmin or directly go into mysql and import database schema from file "hawkstagram.sql"
 

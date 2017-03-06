@@ -1,15 +1,14 @@
-<?php include 'includes/header.php'; ?>
-<body>
+<?php include 'includes/header.php';?>
 <div class="Head">
-    <h1>Hawkstagram</h1>
+    <h1 id="hawkstagram">Hawkstagram</h1>
 </div>
 <div class="overlay">
     <div class="container">
         <div id="boxes" class="col">
             <div class="IITSignIn form-box">
-                <form action="_register.php" method="post">
+                <form action="_login.php" method="post">
                     <div class="text-center">
-                        <h2>Illinois Tech Login</h2>
+                        <h2 id="loginHeader">Illinois Tech Login</h2>
                     </div>
                     <div class="form-group">
                         <!-- <label for="username" class="control-label">Username</label> -->
@@ -28,7 +27,7 @@
             <div class="outsideSign-In form-box">
                 <form id="form2"""action="_logincheck.php" method="post">
                     <div class="text-center">
-                        <h3>Not a Student?</h3>
+                        <h3 id="loginOutsideHeader">Not a Student?</h3>
                     </div>
                     <br><br>
                     <div class="colButton form-group">

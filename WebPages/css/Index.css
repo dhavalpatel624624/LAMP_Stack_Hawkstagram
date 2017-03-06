@@ -3,37 +3,70 @@
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0;  padding: 0;  border: 0;  font-size: 100%; font: inherit; vertical-align: baseline;  }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;} table { border-collapse: collapse; border-spacing: 0;}
+/******************Nav Bar*********************/
+
+nav {
+    top: 0;
+    position: fixed;
+}
+
+ul {
+    padding: 10px;
+    width: 77.4%;
+    height: 10%;
+    float: left;
+    margin: 0 0 2% 0;
+    background-color: #181c16;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: white;
+    text-decoration:none;
+}
+
+li:hover {
+    background-color: lightgray;
+}
+
+a#openup {
+    display: none;
+}
+
+p#Name{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 150%;
+    font-weigh: 500;
+    color: 	#Cf0015;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+    float: left;
+    padding: 1%;
+    clear: right;
+    margin: 0 0 2% 0;
+    background-color: #181c16;
+}
+
+/*****************Nav Bar***********************/
+
+
+
+
 
 html{
     height: 100%;
 }
-h1{
-    font-family: 'Fredericka the Great', cursive;
-    font-size: 80px;
-    font-weight: 500;
-    color: 	#Cf0015;
-    word-spacing: .5px;
-    letter-spacing: 5px;
-    text-align: center;
-    margin: 2%;
-}
-h2{
-    font-family: 'Josefin Slab', serif;
-    font-size: 200%;
-    color: #181c16;
-    margin: 2%;
-    word-spacing: .5px;
-    letter-spacing: 5px;
 
-}
-h3{
-    font-family: 'Josefin Slab', serif;
-    font-size: 250%;
-    color: #181c16;
-    margin-top: 5%;
-    word-spacing: .5px;
-    letter-spacing: 5px;
-}
+
 body {
     font-family: 'Josefin Slab', serif;
     font-size: 16px;
@@ -111,21 +144,103 @@ input{
 #form2{
     margin: 7%;
 }
+h1#hawkstagram{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 80px;
+    font-weight: 500;
+    color: 	#Cf0015;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+    text-align: center;
+    margin: 2% 2%  2% 3%;
+    padding: 1%;
+    background-color: rgba(255, 255, 255, 0.55);
+    width: 94%;
 
-@media (max-width: 850px) {
+}
+h2#loginIITHeader{
+    font-family: 'Josefin Slab', serif;
+    font-size: 200%;
+    color: #181c16;
+    margin: 2%;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+}
+h3#loginOutsideHeader{
+    font-family: 'Josefin Slab', serif;
+    font-size: 250%;
+    color: #181c16;
+    margin-top: 5%;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+}
+
+h2#photoUpload{
+    text-align: center;
+    font-size: 150%;
+}
+@media screen and (max-width: 850px) {
     .col {
         -moz-column-count: auto;
         -webkit-column-count: auto;
         column-count: auto;
     }
-    h1{
-        font-size: 300%
-    }
-    .IITSignIn{
-    }
-    .outsideSign-In{
+    h1#hawkstagram{
+        font-size: 300%;
+        margin: 2% 2% 2% 7%;
+        padding: 2%;
+        width: 86%;
     }
     #boxes{
         height: auto;
+    }
+    h1{
+        font-size: 2.8em;
+    }
+
+    nav {
+        height: auto;
+        border-bottom: 0;
+    }
+
+    ul {
+        display: none;
+        height: auto;
+    }
+
+    li {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+
+    a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+
+    }
+
+    a:hover {
+
+    }
+
+    a#openup:after {
+        content:"|||";
+        transform:rotate(-90deg);
+        -ms-transform:rotate(-90deg); /* IE 9 */
+        -webkit-transform:rotate(-90deg); /* Safari and Chrome */
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 5px;
+        top: 20px;
+    }
+
+    a#openup {
+        display: block;
+        width: 100%;
+        position: relative;
     }
 }

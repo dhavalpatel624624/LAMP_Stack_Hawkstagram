@@ -8,7 +8,7 @@
             <div class="IITSignIn form-box">
                 <form action="_login.php" method="post">
                     <div class="text-center">
-                        <h2 id="loginHeader">Illinois Tech Login</h2>
+                        <h2 id="loginIITHeader">Illinois Tech Login</h2>
                     </div>
                     <div class="form-group">
                         <!-- <label for="username" class="control-label">Username</label> -->
@@ -19,7 +19,7 @@
                         <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="form-control btn btn-primary" value="Login" id="username" name="register">
+                        <input type="submit" class="form-control btn btn-red" value="Login" id="username" name="register">
                     </div>
                 </form>
             </div>
@@ -31,8 +31,8 @@
                     </div>
                     <br><br>
                     <div class="colButton form-group">
-                        <input type="submit" class="form-control btn btn-success" value="Register">
-                        <input type="submit" id="login" class="form-control btn btn-primary" value="Login" id="username" name="login">
+                        <input type="submit" class="form-control btn btn-brown" value="Register">
+                        <input type="submit" id="login" class="form-control btn btn-red" value="Login" id="username" name="login">
                     </div>
                     <?php if (isset($_GET['error'])): ?>
                         <p class="text-center text-danger bg-danger"><?= $_GET['error']; ?></p>

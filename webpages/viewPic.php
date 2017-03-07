@@ -1,19 +1,13 @@
-<?php include 'includes/header.php'; ?>
-<style>
-    body{
-        padding-top: 70px;
-    }
-</style>
-<?php
+<?php include 'includes/header.php';
 
-$id = $_REQUEST['id'];
-$sql = "SELECT * FROM `posts` WHERE `post_id` = '$id'";
-$result = mysqli_query($con, $sql);
+//$id = $_REQUEST['id'];
+//$sql = "SELECT * FROM `posts` WHERE `post_id` = '$id'";
+//$result = mysqli_query($con, $sql);
 ?>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <?php while($row = mysqli_fetch_object($result)): ?>
+            <!--?php while($row = mysqli_fetch_object($result)): ?-->
             <div class="panel panel-info">
                 <div class="panel-heading text-center"><h4><?= $row -> title ?></h4></div>
                 <div class="panel-body">

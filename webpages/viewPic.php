@@ -1,9 +1,9 @@
-<?php include 'includes/header.php';
+<?php include 'includes/header.php'; include 'includes/nav.php';
 
-$path_parts = pathinfo($_GET['file']);
-$file_name  = $path_parts['Photo'];
-$file_path  = '/mysecretpath/' . $file_name;
-echo file_get_contents($file_path);
+//$path_parts = pathinfo($_GET['file']);
+$file_name  = 'Capture.PNG';
+$file_path  = './photouploads/' . $file_name;
+file_get_contents($file_path);
 
 ?>
 <div class="container">
@@ -14,7 +14,9 @@ echo file_get_contents($file_path);
                 <div class="panel-heading text-center"><h4><!--?= $row -> title ?--></h4></div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <!-- Image file -->
+                        <?php
+                            echo '<img src="' . htmlspecialchars($file_path) . '"/>"';
+                        ?>
                     </div>
                 </div>
                 <!-- php $userid = $row -> user_id; ?>

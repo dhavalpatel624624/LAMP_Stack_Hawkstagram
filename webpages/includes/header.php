@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
   <link rel="stylesheet" href="css/font-awesome.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/home.css">
   <title>Hawkstagram</title>
 </head>
 <body>

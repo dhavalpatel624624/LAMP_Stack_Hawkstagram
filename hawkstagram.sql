@@ -110,7 +110,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `salted_password` varchar(255) COLLATE utf8_bin NOT NULL,
   `first_name` varchar(255) COLLATE utf8_bin NOT NULL,
   `last_name` varchar(255) COLLATE utf8_bin NOT NULL,
-  `last_ip` varchar(255) COLLATE utf8_bin NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)

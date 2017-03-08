@@ -5,10 +5,14 @@
             <div class="panel panel-primary">
                 <div class="panelHead text-center"><h2 id="photoUpload">Photo Upload</h2></div>
                 <div class="panel-body">
-                    <form class="" action="_uploadinstapic.php" method="post" enctype="multipart/form-data">
+                    <form class="" action="_uploadPic.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="photo" class="control-label">Choose Photos:</label>
                             <input type="file" class="form-control" id="photo" name="photo">
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="control-label">Title:</label>
+                            <textarea class="form-control" id="title" name="title" placeholder="" rows="1" cols="40"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="description" class="control-label">Write Description:</label>

@@ -25,7 +25,7 @@
             </div>
 
             <div class="outsideSign-In form-box">
-                <form id="form2"""action="_logincheck.php" method="post">
+                <form id="form2" "action="_logincheck.php" method="post">
                     <div class="text-center">
                         <h3 id="loginOutsideHeader">Not a Student?</h3>
                     </div>

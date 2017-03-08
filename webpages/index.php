@@ -6,7 +6,7 @@
     <div class="container">
         <div id="boxes" class="col">
             <div class="IITSignIn form-box">
-                <form action="_login.php" method="post">
+                <form action="uploadPic.php" method="post">
                     <div class="text-center">
                         <h2 id="loginIITHeader">Illinois Tech Login</h2>
                     </div>

@@ -9,17 +9,17 @@
         <div class="col-md-8 col-md-offset-2">
             <!--?php while($row = mysqli_fetch_object($result)): ?-->
             <div class="panel panel-info">
-                <div class="panel-heading text-center"><h4><?= $row -> title ?></h4></div>
+                <div class="panel-heading text-center"><h4><!--?= $row -> title ?--></h4></div>
                 <div class="panel-body">
                     <div class="col-md-12">
                         <img src="<?= $row -> image_url; ?>" alt="" class="img-responsive center-block">
                         <h4 class="text-center">
-                            <?= $row -> description; ?>
+                            <!--?= $row --> description; ?>
                         </h4>
                     </div>
                 </div>
                 <?php $userid = $row -> user_id; ?>
-                <?php endwhile; ?>
+             <!--?php endwhile; ?-->
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-12">

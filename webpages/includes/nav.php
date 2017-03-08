@@ -1,12 +1,12 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'header.php'; ?>
 <?php //$username = $_SESSION['username']; ?>
 <div class="nav">
-    <ul >
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-    <p id="Name">Hawkstagram</p>
+    <nav id="navigation">
+        <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="uploadPic.php">Upload Pic</a></li>
+            <li><a href="viewPic.php">View Pics</a></li>
+            <li><a href="index.php">Sign in/Sign up</a></li>
+        </ul>
+    </nav>
 </div>

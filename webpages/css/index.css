@@ -67,7 +67,7 @@ body {
     font-size: 16px;
     background: #edeae6 url("images/innovation.jpg") no-repeat center;
 	width: 100%;
-	heightL 100%;
+	height: 100%;	
     background-size: cover;
 }
 input{

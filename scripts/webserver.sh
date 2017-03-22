@@ -12,7 +12,7 @@ HOST=$(hostname)
 echo "==================================================="
 echo "Installing Apache2..."
 echo "==================================================="
-	sudo apt-get -y install apache2 apache2-utils >> /vagrant/vm_build.log 2>&1
+	sudo apt-get -y install apache2 apache2-utils
 
 sudo rm -rf /var/www
 sudo mkdir /var/www
@@ -29,9 +29,9 @@ echo "==================================================="
 echo "Installing PHP... "
 echo "==================================================="
 echo "Installing PHP"
-    apt-get install -y php5-common php5-dev php5-cli php5-fpm libapache2-mod-php5 >> /vagrant/vm_build.log 2>&1
+    apt-get install -y php5-common php5-dev php5-cli php5-fpm libapache2-mod-php5
 echo "Installing PHP extensions"
-    apt-get install -y curl php5-curl php5-gd php5-mcrypt php5-mysql >> /vagrant/vm_build.log 2>&1
+    apt-get install -y curl php5-curl php5-gd php5-mcrypt php5-mysql
 
 echo "Installing phpmyadmin"	
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
@@ -39,7 +39,7 @@ echo "Installing phpmyadmin"
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/admin-pass password $DBPASSWD"
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $DBPASSWD"
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect none"
-	apt-get -y install mysql-server phpmyadmin >> /vagrant/vm_build.log 2>&1
+	apt-get -y install mysql-server phpmyadmin
 
 # ufw script
 #

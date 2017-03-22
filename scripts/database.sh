@@ -14,11 +14,11 @@ echo "Preparing MySQL..."
 echo "==================================================="
 	sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $DBPASSWD"
 	sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $DBPASSWD"
-	sudo apt-get install -y mysql-server mysql-common mysql-client >> /vagrant/vm_build.log 2>&1
+	sudo apt-get install -y mysql-server mysql-common mysql-client
 echo "Installing MySQL"
-	sudo apt-get install mysql-server -y >> /vagrant/vm_build.log 2>&1
-	mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME" >> /vagrant/vm_build.log 2>&1
-	mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBPASSWD'" > /vagrant/vm_build.log 
+	sudo apt-get install mysql-server -y
+	mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME"
+	mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBPASSWD'"
 	
 	sudo service mysql restart
 	

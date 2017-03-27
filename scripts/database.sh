@@ -37,5 +37,23 @@ echo "Installing phpmyadmin"
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $DBPASSWD"
 	sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect none"
 	apt-get -y install mysql-server phpmyadmin >> /vagrant/vm_build.log 2>&1
+	
+echo "==================================================="
+echo "Installing UFW... "
+echo "==================================================="
+sudo ufw disable
+sudo ufw --force reset
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+sudo ufw allow ssh
+sudo ufw allow 3306/tcp	#Allow mySQL
+sudo ufw allow http
+sudo ufw allow https
+
+
+sudo ufw --force enable
+sudo ufw logging on 
 
 echo "Finished provisioning."

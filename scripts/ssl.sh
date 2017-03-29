@@ -2,7 +2,7 @@
 # ssl script
 #
 
-sudo apt-get install -y expect
+#sudo apt-get install -y expect
 
 sudo a2enmod ssl
 

@@ -1,13 +1,11 @@
-#!/bin/bash	
+#!/usr/bin/env bash
 	sudo apt-get update -y
 	sudo apt-get install -y build-essential git
 	sudo apt-get install -y debconf-utils -y > /dev/null
 # Variables
-DBHOST=localhost
-DBNAME=hawkstagram
-DBUSER=dbuser
-DBPASSWD=hawkstagram123
 HOST=$(hostname)
+GITUSER=CHANGERUSERHERE
+GITPASS=CHANGEPASSHERE
 
 echo "==================================================="
 echo "Installing Apache2..."
@@ -48,4 +46,18 @@ sudo ufw allow https
 sudo ufw --force enable
 sudo ufw logging on 
 
+echo "==================================================="
+echo "Cloning and Moving Github Repo "
+echo "==================================================="
+cd /var/www/
+sudo git clone https://$GITUSER:$GITPASS@github.com/illinoistech-itm/team-2-hawkstagram.git
+sudo cp -r team-2-hawkstagram/webpages /var/www/html
+echo "==================================================="
+echo "What's In The Directory?"
+echo "==================================================="
+cd /var/www/html
+ls
+
+echo "==================================================="
 echo "Finished provisioning."	
+

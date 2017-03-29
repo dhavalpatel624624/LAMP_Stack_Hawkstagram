@@ -8,6 +8,8 @@ DBNAME=hawkstagram
 DBUSER=dbuser
 DBPASSWD=hawkstagram123
 HOST=$(hostname)
+GITUSER=keunglh
+GITPASS=Lap123456
 
 echo "==================================================="
 echo "Preparing MySQL..."
@@ -56,4 +58,14 @@ sudo ufw allow https
 sudo ufw --force enable
 sudo ufw logging on 
 
+echo "==================================================="
+echo "Cloning and Moving Github Repo "
+echo "==================================================="
+sudo git clone https://$GITUSER:$GITPASS@github.com/illinoistech-itm/team-2-hawkstagram.git
+echo "==================================================="
+echo "What's In The Directory?"
+echo "==================================================="
+ls
+
+echo "==================================================="
 echo "Finished provisioning."

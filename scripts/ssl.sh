@@ -1,4 +1,4 @@
-#!/bin/bin/expect
+#!/usr/bin/expect
 # ssl script
 #
 

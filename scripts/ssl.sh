@@ -2,6 +2,8 @@
 # ssl script
 #
 
+sudo apt-get install expect
+
 sudo a2enmod ssl
 
 sudo service apache2 restart

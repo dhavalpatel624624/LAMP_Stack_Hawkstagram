@@ -8,9 +8,12 @@ sudo service apache2 restart
 
 sudo mkdir /etc/apache2/ssl
 
-echo -e 'US\nIllinois\nChicago\nIllinois Institute of Technology\nInformation Technology Management\nHawkstagram\njhedlund@hawk.iit.edu\n'| sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
+sudo cp team-2-hawkstagram/scripts/ssl/apache2.crt /etc/apache2/ssl
+sudo cp team-2-hawkstagram/scripts/ssl/apache2.key /etc/apache2/ssl
+sudo cp team-2-hawkstagram/scripts/ssl/default-ssl.conf /etc/apache2/sites-available/
 
+sudo a2ensite default-ssl.conf
 
-
+sudo service apache2 restart
 
 

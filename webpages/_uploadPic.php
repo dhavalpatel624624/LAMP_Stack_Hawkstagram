@@ -56,10 +56,10 @@ function upload() {
 
                   // put the image in the db...
                   // our sql query - STILL NEEDS TO HAVE A CORRECT USER_ID
-                  $sql = "INSERT INTO photos
+                  $sql = ("INSERT INTO photos
                   (user_id, caption, image_path, image_size, image)
                   VALUES
-                  (0, '$description', '{$_FILES['photo']['name']}','{$_FILES['photo']['size']}','$imgData');";
+                  (0, '$description', '{$_FILES['photo']['name']}','{$_FILES['photo']['size']}','$imgData')", $masterdb);
 
                   // insert the image
                   mysql_query($sql) or die("Error in Query: " . mysql_error());
@@ -108,5 +108,4 @@ function file_upload_error_message($error_code) {
             return 'Unknown upload error';
     }
 }
-mysql_close($conn)
 ?>

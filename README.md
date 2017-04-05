@@ -25,9 +25,8 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.
-6. You can either spinup the database's phpmyadmin or directly go into mysql and import database schema from file "hawkstagram.sql" and "dummydata.sql" in the sql directory
-7. "vagrant up" or "vagrant reload --provision"
-8. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
+6. "vagrant up" or "vagrant reload --provision"
+7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
 
 # Reference Links
  +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/  

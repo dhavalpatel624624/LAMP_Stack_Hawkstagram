@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
 CREATE TABLE IF NOT EXISTS `photo_comments` (
   `photo_id` int(11) unsigned NOT NULL,
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `comment` varchar(10000) NOT NULL 
+  `comment` varchar(10000) NOT NULL,
   PRIMARY KEY (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 

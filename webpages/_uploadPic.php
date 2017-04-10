@@ -6,6 +6,7 @@
 //http://php.net/manual/en/features.file-upload.post-method.php
 //https://vikasmahajan.wordpress.com/2010/07/07/inserting-and-displaying-images-in-mysql-using-php/
 //http://stackoverflow.com/questions/1636877/how-can-i-store-and-retrieve-images-from-a-mysql-database-using-php
+//http://packetcode.com/article/preventing-sql-injection-php-security
 
 // check if a file was submitted
 if(!isset($_FILES['photo']))
@@ -24,7 +25,8 @@ else
     }
 }
 
-$description = $_POST['description'];
+$unsafe_variable = $_POST['description'];
+$description = mysql_real_escape_string($unsafe_variable);
 
 // the upload function
 
@@ -59,7 +61,7 @@ function upload() {
                   $sql = ("INSERT INTO photos
                   (user_id, caption, image_path, image_size, image)
                   VALUES
-                  (0, '$description', '{$_FILES['photo']['name']}','{$_FILES['photo']['size']}','$imgData')", $masterdb);
+                  (0, '" . $description . "', '{$_FILES['photo']['name']}','{$_FILES['photo']['size']}','" . $imgData . "')", $masterdb);
 
                   // insert the image
                   mysql_query($sql) or die("Error in Query: " . mysql_error());

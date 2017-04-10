@@ -21,7 +21,7 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 
 # Webserver Installation
 1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init webserver"
-2. config.vm.provision :shell, path: "../scripts/webserver.sh" -- change pathfile to scripts folder
+2. config.vm.provision :shell, path: "../scripts/webserver.sh" -- change pathfile to scripts folder depending on where box is initialized
 3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.
@@ -30,7 +30,7 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 
 # Database Installation
 1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database"
-2. config.vm.provision :shell, path: "../scripts/database.sh" -- change pathfile to scripts folder
+2. config.vm.provision :shell, path: "../scripts/database.sh" -- change pathfile to scripts folder depending on where box is initialized
 3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.

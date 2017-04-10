@@ -19,9 +19,18 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 3. "vagrant box add packer_output.box --name boxname" name it database for the database box and webserver for the webserver box  
 4. (OPTIONAL) "vagrant box list" to confirm that you correctly added the two boxes
 
-# To get it setup
-1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database/webserver"
-2. config.vm.provision :shell, path: "../scripts/database.sh" or "../scripts/webserver.sh" change pathfile to scripts folder
+# Webserver Installation
+1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init webserver"
+2. config.vm.provision :shell, path: "../scripts/webserver.sh" -- change pathfile to scripts folder
+3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
+4. Look at the credentials of the provisioner file, those are defaults, change them as you like
+5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.
+6. "vagrant up" or "vagrant reload --provision"
+7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
+
+# Database Installation
+1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database"
+2. config.vm.provision :shell, path: "../scripts/database.sh" -- change pathfile to scripts folder
 3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.

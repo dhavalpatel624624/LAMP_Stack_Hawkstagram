@@ -1,7 +1,9 @@
-<?php include 'includes/header.php';?>
+<?php include 'includes/header.php'; include 'includes/_facebookSDK.php';?>
+<div id="fb-root"></div>
 <div class="Head">
     <h1 id="hawkstagram">Hawkstagram</h1>
 </div>
+<div><?php include 'includes/nav.php'?></div>
 <div class="overlay">
     <div class="container">
         <div id="boxes" class="col">
@@ -25,21 +27,11 @@
             </div>
 
             <div class="outsideSign-In form-box">
-                <form id="form2" "action="_logincheck.php" method="post">
-                    <div class="text-center">
-                        <h3 id="loginOutsideHeader">Not a Student?</h3>
-                    </div>
-                    <br><br>
-                    <div class="colButton form-group">
-                        <input type="submit" class="form-control btn btn-brown" value="Register">
-                        <input type="submit" id="login" class="form-control btn btn-red" value="Login" id="username" name="login">
-                    </div>
-                    <?php if (isset($_GET['error'])): ?>
-                        <p class="text-center text-danger bg-danger"><?= $_GET['error']; ?></p>
-                    <?php endif; ?>
-                </form>
+                <h3>Not a Student?</h3>
+                <div class="fb-login-button " data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
             </div>
         </div>
+
     </div>
 </div>
 </div>

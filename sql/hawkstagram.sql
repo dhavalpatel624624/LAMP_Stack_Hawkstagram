@@ -23,18 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
---
-
-CREATE TABLE IF NOT EXISTS `comments` (
-  `comment_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `comment` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Likes`
 --
 
@@ -57,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `caption` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `image_path` varchar(255) CHARACTER SET utf8 NOT NULL,
   `image_size` int(11) NOT NULL,
+  `image` blob NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`photo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
@@ -70,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
 CREATE TABLE IF NOT EXISTS `photo_comments` (
   `photo_id` int(11) unsigned NOT NULL,
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `comment` varchar(10000) NOT NULL,
   PRIMARY KEY (`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 

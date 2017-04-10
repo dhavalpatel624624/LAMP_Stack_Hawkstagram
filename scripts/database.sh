@@ -62,10 +62,19 @@ echo "==================================================="
 echo "Cloning and Moving Github Repo "
 echo "==================================================="
 sudo git clone https://$GITUSER:$GITPASS@github.com/illinoistech-itm/team-2-hawkstagram.git
+
 echo "==================================================="
 echo "What's In The Directory?"
 echo "==================================================="
 ls
+
+echo "==================================================="
+echo "Importing mySQL tables and data "
+echo "==================================================="
+cd team-2-hawkstagram/sql/
+mysql -u root -p$DBPASSWD hawkstagram < hawkstagram.sql
+mysql -u root -p$DBPASSWD hawkstagram < dummydata.sql
+cd ..
 
 echo "==================================================="
 echo "Finished provisioning."

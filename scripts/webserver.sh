@@ -4,8 +4,8 @@
 	sudo apt-get install -y debconf-utils -y > /dev/null
 # Variables
 HOST=$(hostname)
-GITUSER=CHANGERUSERHERE
-GITPASS=CHANGEPASSHERE
+GITUSER=keunglh
+GITPASS=Lap123456
 
 echo "==================================================="
 echo "Installing Apache2..."
@@ -47,7 +47,7 @@ sudo ufw --force enable
 sudo ufw logging on 
 
 echo "==================================================="
-echo "Cloning and Moving Github Repo "
+echo "Cloning and Moving Github Repo... "
 echo "==================================================="
 cd /var/www/
 sudo git clone https://$GITUSER:$GITPASS@github.com/illinoistech-itm/team-2-hawkstagram.git
@@ -57,6 +57,23 @@ echo "What's In The Directory?"
 echo "==================================================="
 cd /var/www/html
 ls
+
+echo "==================================================="
+echo "Copying Premade openSSL certs ..."
+echo "==================================================="
+sudo a2enmod ssl
+
+sudo service apache2 restart
+
+sudo mkdir /etc/apache2/ssl
+
+sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache.crt /etc/apache2/ssl
+sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache.key /etc/apache2/ssl
+sudo cp /var/www/team-2-hawkstagram/scripts/ssl/default-ssl.conf /etc/apache2/sites-available/
+
+sudo a2ensite default-ssl.conf
+
+sudo service apache2 restart
 
 echo "==================================================="
 echo "Finished provisioning."	

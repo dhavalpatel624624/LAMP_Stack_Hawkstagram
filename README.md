@@ -37,6 +37,94 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 6. "vagrant up" or "vagrant reload --provision"
 7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
 
+# Slave Installation
+1. Build packer
+2. Add the box, call it slave 
+3. Make new folder somewhere called Slave
+4. Powershell into that folder
+5. Vagrant init slave
+6. Edit Vagrantfile with the designated slave IP, database.sh script, and the following line "config.vm.network :forwarded_port, guest: 80, host: 4567"
+7. SSH into your master DB box 
+
+sudo vim /etc/mysql/my.cnf
+
+*These will primarily be comments, so just uncomment them*
+bind-address = same IP for main database vagrant box
+server-id = 1
+log_bin = /var/log/mysql/mysql-bin.log
+bindlog_do_db = hawkstagram
+
+Save file
+
+Login to main database:
+mysql -u root -p
+
+GRANT REPLICATION SLAVE ON *.* TO 'dbuser' IDENTIFIED BY 'hawkstagram123';
+FLUSH PRIVILEGES;
+SHOW MASTER STATUS;
+
+example:
++------------------+----------+--------------+------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------+----------+--------------+------------------+
+| mysql-bin.000001 |      107 | newdatabase  |                  |
++------------------+----------+--------------+------------------+
+1 row in set (0.00 sec)
+
+Take note of the "000001" and the position, they may be different from this example. 
+
+UNLOCK TABLES;
+
+QUIT;
+
+8. Go back to the slave DB box, since you should already have a Hawkstagram db already from the initializing shell script do the following things. 
+
+sudo vim /etc/mysql/my.cnf
+
+bind-address = IP address for slave DB vagrant box
+server-id = 2
+log_bin = /var/log/mysql/mysql-bin.log
+bindlog_do_db = hawkstagram
+
+Save
+9. sudo service mysql restart
+10. Go back into your slave DB box and do the following,
+
+CHANGE MASTER TO MASTER_HOST='Your MASTER IP',
+MASTER_USER='dbuser', 
+MASTER_PASSWORD='hawkstagram123', 
+MASTER_LOG_FILE='mysql-bin.000001',(Your bin from earlier) 
+MASTER_LOG_POS=  107; (Your pos number from earlier)
+
+START SLAVE;
+
+RESET SLAVE;
+
+11. Now make an edit on the master database such as inserting a new user
+
+INSERT INTO users (username, email, salted_password, first_name, last_name, date_created, date_updated)
+VALUES ('Toad', 'toad@hawk.iit.edu', 'password', 'Toad', 'Toad', NOW(), NOW());
+
+12. Now on the SLAVE database:
+
+SELECT * FROM users; 
+
+It should show the newly added user.
+
+13. This command will show the status of the slave:
+SHOW SLAVE STATUS\G 
+
+The top should say "Waiting for master to send event." and
+
+Slave_IO_Running: YES 
+Slave_SQL_Running: YES
+
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1;
+SLAVE START;
+
+Make a new line with:
+relay-log = /var/log/mysql/mysql-relay-bin.log
+
 # Reference Links
  +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/  
  +Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table  

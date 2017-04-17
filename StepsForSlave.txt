@@ -1,8 +1,10 @@
-Make the slave vagrant box from the packer build: (Instructions already on github)
-1. Build packer
-2. Add the box, call it slave 
-3. Make new folder somewhere called Slave
-4. Powershell into that folder
+Packer Setup and Installation:
+1. Navigate into the install folder cloned from the GitHub repository
+2. From Powershell use command: packer build ubuntu14045-slave
+3. Wait for install to finish
+4. Add the box using command: vagrant box add packer_output.box --name boxname, call the box slave and add the correct box 
+3. Make new folder in the install directory called slave
+4. Navigate in Powershell into that folder
 5. Vagrant init slave
 6. Edit vagrant file (make sure you have our bootstrap.sh file in this folder)
 

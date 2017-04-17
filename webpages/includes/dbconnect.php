@@ -16,7 +16,7 @@ else{
 }
 
 //create connection to slave db
-$slavedb = mysql_connect($slavename, $username, $password);
+$slavedb = mysql_connect($slavename, $username, $password, true);
 
 //check connection to slave db
 if($slavedb->connect_error){
@@ -26,5 +26,6 @@ else{
   echo "connected successfully to slave db";
 }
 
-mysql_select_db($dbname);
+mysql_select_db($dbname, $masterdb);
+mysql_select_db($dbname, $slavedb);
 ?>

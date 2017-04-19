@@ -4,8 +4,8 @@
 	sudo apt-get install -y debconf-utils -y > /dev/null
 # Variables
 HOST=$(hostname)
-GITUSER=keunglh
-GITPASS=Lap123456
+GITUSER=enterhere
+GITPASS=enterhere
 
 echo "==================================================="
 echo "Installing Apache2..."

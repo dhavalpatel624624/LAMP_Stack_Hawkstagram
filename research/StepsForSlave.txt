@@ -122,7 +122,7 @@ The top should say "Waiting for master to send event." and
 Slave_IO_Running: YES 
 Slave_SQL_Running: YES
 
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1;
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
 SLAVE START;
 
 POSSIBLE FIXES FOR PROBLEMS:

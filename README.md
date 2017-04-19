@@ -102,7 +102,7 @@ MASTER_PASSWORD='hawkstagram123',
 MASTER_LOG_FILE='mysql-bin.000001',(Your bin from earlier) 
 MASTER_LOG_POS=  107; (Your pos number from earlier)
 
-START SLAVE;
+STOP SLAVE;
 
 RESET SLAVE;
 

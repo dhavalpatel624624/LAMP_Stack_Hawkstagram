@@ -89,8 +89,12 @@ log_bin = /var/log/mysql/mysql-bin.log
 bindlog_do_db = hawkstagram
 
 Save
+
 9. sudo service mysql restart
-10. Go back into your slave DB box and do the following,
+10. Go back into your slave DB box and do the following in a mysql prompt,
+
+Login to main database:
+mysql -u root -p
 
 CHANGE MASTER TO MASTER_HOST='Your MASTER IP',
 MASTER_USER='dbuser', 

@@ -71,6 +71,8 @@ example:
 +------------------+----------+--------------+------------------+
 1 row in set (0.00 sec)
 
+*If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct
+
 Take note of the "000001" and the position, they may be different from this example. 
 
 UNLOCK TABLES;
@@ -87,8 +89,12 @@ log_bin = /var/log/mysql/mysql-bin.log
 bindlog_do_db = hawkstagram
 
 Save
+
 9. sudo service mysql restart
-10. Go back into your slave DB box and do the following,
+10. Go back into your slave DB box and do the following in a mysql prompt,
+
+Login to main database:
+mysql -u root -p
 
 CHANGE MASTER TO MASTER_HOST='Your MASTER IP',
 MASTER_USER='dbuser', 
@@ -96,7 +102,7 @@ MASTER_PASSWORD='hawkstagram123',
 MASTER_LOG_FILE='mysql-bin.000001',(Your bin from earlier) 
 MASTER_LOG_POS=  107; (Your pos number from earlier)
 
-START SLAVE;
+STOP SLAVE;
 
 RESET SLAVE;
 

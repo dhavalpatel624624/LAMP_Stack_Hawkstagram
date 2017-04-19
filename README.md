@@ -115,7 +115,7 @@ VALUES ('Toad', 'toad@hawk.iit.edu', 'password', 'Toad', 'Toad', NOW(), NOW());
 
 SELECT * FROM users; 
 
-It should show the newly added user.
+It should show the newly added user. If not, in mysql use the command: use hawkstagram;
 
 13. This command will show the status of the slave:
 SHOW SLAVE STATUS\G 

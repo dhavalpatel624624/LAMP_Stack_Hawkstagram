@@ -3,11 +3,64 @@
 html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0;  padding: 0;  border: 0;  font-size: 100%; font: inherit; vertical-align: baseline;  }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;} table { border-collapse: collapse; border-spacing: 0;}
+/******************Nav Bar*********************/
 
+nav {
+    top: 0;
+    position: fixed;
+}
+
+ul {
+    padding: 10px;
+    width: 77.4%;
+    height: 10%;
+    float: left;
+    margin: 0 0 2% 0;
+    background-color: #181c16;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+a {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    color: white;
+    text-decoration:none;
+}
+
+li:hover {
+    background-color: lightgray;
+}
+
+a#openup {
+    display: none;
+}
+
+p#Name{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 150%;
+    font-weigh: 500;
+    color: 	#Cf0015;
+    word-spacing: .5px;
+    letter-spacing: 5px;
+    float: left;
+    padding: 1%;
+    clear: right;
+    margin: 0 0 2% 0;
+    background-color: #181c16;
+}
+
+/*****************Nav Bar***********************/
 html{
     height: 100%;
-
 }
+
 
 body {
     font-family: 'Josefin Slab', serif;
@@ -21,7 +74,7 @@ input{
 .overlay{
     background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2));
     background-size: cover;
-    height: 50vh;
+    height: 75vh;
     width: 100%;
 }
 .sidebar{
@@ -95,25 +148,16 @@ input{
 #form2{
     margin: 7%;
 }
-#text{
-    padding: 5% 5% 0 5%;
-    text-align: justify;
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-    -moz-column-count: 3; /* Firefox */
-    column-count: 3;
-    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 40px; /* Firefox */
-    column-gap: 40px;
-}
 h1#hawkstagram{
     font-family: 'Fredericka the Great', cursive;
-    font-size: 60px;
+    font-size: 80px;
     font-weight: 500;
     color: 	#Cf0015;
     word-spacing: .5px;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     text-align: center;
     margin: 2% 2%  2% 3%;
+    padding: 1%;
     background-color: rgba(255, 255, 255, 0.55);
     width: 94%;
 
@@ -159,13 +203,8 @@ h2#photoUpload{
         -webkit-column-count: auto;
         column-count: auto;
     }
-    .form-box {
-        margin: 4% 0 0 5%;
-        padding-bottom: 10px;
-        background-color: rgba(255, 255, 255, 0.55);
-    }
     h1#hawkstagram{
-        font-size: 250%;
+        font-size: 300%;
         margin: 2% 2% 2% 7%;
         padding: 2%;
         width: 86%;
@@ -221,63 +260,5 @@ h2#photoUpload{
         display: block;
         width: 100%;
         position: relative;
-    }
-    #text{
-        padding: 5.5%;
-        text-align: justify;
-    }
-}
-@media screen and (max-width: 650px) {
-    .col {
-        -moz-column-count: auto;
-        -webkit-column-count: auto;
-        column-count: auto;
-    }
-    .form-box {
-        margin: 4% 0 0 5%;
-        padding-bottom: 10px;
-        background-color: rgba(255, 255, 255, 0.55);
-    }
-    .overlay{
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2));
-        background-size: cover;
-        height: 92vh;
-        width: 100%;
-    }
-    h1#hawkstagram{
-        font-size: 250%;
-        margin: 2% 2% 2% 7%;
-        padding: 1%;
-        width: 86%;
-    }
-    #boxes{
-        height: auto;
-
-    }
-    #text{
-        padding: 6.5%;
-        text-align: justify;
-        -webkit-column-count: 1; /* Chrome, Safari, Opera */
-        -moz-column-count: 1; /* Firefox */
-        column-count: 1;
-        -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
-        -moz-column-gap: 40px; /* Firefox */
-        column-gap: 40px;
-        text-indent: 30px;
-        color: #c5a173;
-    }
-    h2#loginIITHeader{
-        font-family: 'Josefin Slab', serif;
-        font-size: 200%;
-        color: #181c16;
-        margin: 2%;
-        letter-spacing: 2px;
-    }
-    h3#loginOutsideHeader{
-        font-family: 'Josefin Slab', serif;
-        font-size: 200%;
-        color: #181c16;
-        margin-top: 5%;
-        letter-spacing: 2px;
     }
 }

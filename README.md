@@ -71,6 +71,8 @@ example:
 +------------------+----------+--------------+------------------+
 1 row in set (0.00 sec)
 
+*If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct
+
 Take note of the "000001" and the position, they may be different from this example. 
 
 UNLOCK TABLES;

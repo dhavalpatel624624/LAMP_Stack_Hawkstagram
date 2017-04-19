@@ -127,7 +127,7 @@ Slave_SQL_Running: YES
 
 *If you are having issues with the slave database, please run these commands:
 
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1;
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
 SLAVE START;
 
 Make a new line with:

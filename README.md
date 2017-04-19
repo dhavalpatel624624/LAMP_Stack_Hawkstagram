@@ -125,6 +125,8 @@ The top should say "Waiting for master to send event." and
 Slave_IO_Running: YES 
 Slave_SQL_Running: YES
 
+*If you are having issues with the slave database, please run these commands:
+
 SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 1;
 SLAVE START;
 

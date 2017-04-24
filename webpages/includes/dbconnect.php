@@ -1,6 +1,7 @@
 <?php
 $mastername = "192.168.1.192"; //change the ip for your own db
 $slavename = "192.168.1.202"; //change the ip for your own db
+$username = "dbuser";
 $password = "hawkstagram123";
 $dbname = "hawkstagram";
 
@@ -8,22 +9,22 @@ $dbname = "hawkstagram";
 $masterdb = mysql_connect($mastername, $username, $password);
 
 // Check connection with master db
-if ($masterdb->connect_error) {
-    die("Connection failed with master db: " . $masterdb->connect_error);
+if (!$masterdb) {
+    die("Connection failed with master db: " . $masterdb->connect_error . "\n");
 }
 else{ 
-  echo "Connected successfully to master db";
+  echo "Connected successfully to master db \n";
 }
 
 //create connection to slave db
 $slavedb = mysql_connect($slavename, $username, $password, true);
 
 //check connection to slave db
-if($slavedb->connect_error){
-  die("Connection failed with slave db:" . $slavedb->connect_error);
+if(!$slavedb){
+  die("Connection failed with slave db:" . $slavedb->connect_error . "\n");
 }
 else{
-  echo "connected successfully to slave db";
+  echo "connected successfully to slave db \n";
 }
 
 mysql_select_db($dbname, $masterdb);

@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; include 'includes/nav.php';?>
+<?php include 'includes/nav.php';?>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -15,7 +15,7 @@
                             <label for="description" class="control-label">Write Description:</label>
                             <textarea class="form-control" id="description" name="description" placeholder="Where was this picture taken? What was the name of the event?" rows="8" cols="40"></textarea>
                         </div>
-                        .<div class="form-group">
+                        <div class="form-group">
                             <input type="submit" class="form-control btn btn-brown" id="submit" name="upload" value="Upload your photo">
                         </div>
                     </form>

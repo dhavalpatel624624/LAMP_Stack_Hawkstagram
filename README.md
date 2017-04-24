@@ -133,7 +133,30 @@ SLAVE START;
 Make a new line with:
 relay-log = /var/log/mysql/mysql-relay-bin.log
 
+#Integrating Webserver to Slave and Master DB
+
+1. SSH into your three boxes
+2. In WEBSERVER, cd /var/www/html/webpages/includes
+3. sudo vim dbconnect.php and change the IPs to your salve and master db
+4. In MASTER DB, login to mysql: 
+mysql -u root -p 
+GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'hawkstagram123';
+
+5. In SLAVE DB, login to mysql:
+mysql -u root -p 
+GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'hawkstagram123';
+
+6. In your WEBSERVER, test if your database is connected:
+cd /var/www/html/webpages/includes
+php dbconnect.php
+
+You should get: 
+Connected successfully to master db!
+connected successfully to slave db!
+
 # Reference Links
  +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/  
  +Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table  
  +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
+ +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server
+ 

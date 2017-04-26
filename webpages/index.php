@@ -28,6 +28,7 @@
                     <div class="form-group">
                         <input type="submit" class="form-control btn btn-red" value="Login" id="username" name="register">
                     </div>
+                    <span><?php echo $error; ?></span>
                 </form>
             </div>
 

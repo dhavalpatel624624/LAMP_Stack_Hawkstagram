@@ -12,9 +12,6 @@ $masterdb = mysql_connect($mastername, $username, $password);
 if (!$masterdb) {
     die("Connection failed with master db: " . $masterdb->connect_error . "\n");
 }
-else{ 
-  echo "Connected successfully to master db \n";
-}
 
 //create connection to slave db
 $slavedb = mysql_connect($slavename, $username, $password, true);
@@ -22,9 +19,6 @@ $slavedb = mysql_connect($slavename, $username, $password, true);
 //check connection to slave db
 if(!$slavedb){
   die("Connection failed with slave db:" . $slavedb->connect_error . "\n");
-}
-else{
-  echo "connected successfully to slave db \n";
 }
 
 mysql_select_db($dbname, $masterdb);

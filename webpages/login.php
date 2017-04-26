@@ -22,8 +22,10 @@
       $query = mysql_query("select * from users where salted_password='$password' AND username='$username'", $slavedb);
       $rows = mysql_num_rows($query);
       if ($rows == 1) {
-      $_SESSION['login_user']=$username; // Initializing Session
-      header("location: uploadPic.php"); // Redirecting To Other Page
+        $_SESSION['login_user']=$username; // Initializing Session
+        $_SESSION['first_name']=$first_name;
+        $_SESSION['last_name']=$last_name;
+        header("location: uploadPic.php"); // Redirecting To Other Page
       } 
       else {
         $error = "Username or Password is invalid";

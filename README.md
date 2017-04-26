@@ -14,10 +14,15 @@ Lap-Heng Keung - Operations/Project Management -> X=191/201/206
 Doug Rubio - Security/Operations ->  X=196/197/203 
 
 # Packer Setup
-1. Go into the install folder - "packer build ubuntu14045-webserver" or "packer build ubuntu14045-database" 
-2. Let packer run, you should now have two box images in the build folder, one for the database and one for webserver
-3. "vagrant box add packer_output.box --name boxname" name it database for the database box and webserver for the webserver box  
-4. (OPTIONAL) "vagrant box list" to confirm that you correctly added the two boxes
+1. Go into the install folder
+2. "packer build ubuntu14045-webserver"
+3. "packer build ubuntu14045-database"
+4. "packer build ubuntu14045-slave" 
+5. Let packer run, you should now have three box images in the build folder, one for the database, webserver and slave
+6. "vagrant box add packer_output.box --name webserver"
+7. "vagrant box add packer_output.box --name database"
+8. "vagrant box add packer_output.box --name slave"
+9. (OPTIONAL) "vagrant box list" to confirm that you correctly added the two boxes
 
 # Webserver Installation
 1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init webserver"

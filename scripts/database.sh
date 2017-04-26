@@ -46,7 +46,7 @@ echo "==================================================="
 sudo ufw disable
 sudo ufw --force reset
 
-sudo ufw default deny incoming
+sudo u+fw default deny incoming
 sudo ufw default allow outgoing
 
 sudo ufw allow ssh
@@ -73,6 +73,10 @@ echo "Importing mySQL tables and data "
 echo "==================================================="
 cd team-2-hawkstagram/sql/
 mysql -u root -p$DBPASSWD hawkstagram < hawkstagram.sql
+mysql -u root -p$DBPASSWD <<trigger_statement
+use hawkstagram
+CREATE TRIGGER t BEFORE INSERT ON users FOR EACH ROW SET NEW.salted_password = SHA(NEW.salted_password)
+trigger_statement
 mysql -u root -p$DBPASSWD hawkstagram < dummydata.sql
 cd ..
 

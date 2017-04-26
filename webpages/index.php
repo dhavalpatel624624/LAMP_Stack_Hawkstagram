@@ -1,4 +1,9 @@
-<?php include 'includes/header.php'; include 'includes/_facebookSDK.php';?>
+<?php include 'includes/header.php'; include 'includes/_facebookSDK.php'; include 'login.php';?>
+<?php 
+  if(isset($_SESSION['login_user'])){
+    header("location: uploadPic.php");
+  }
+?>
 <div id="fb-root"></div>
 <div class="Head">
     <h1 id="hawkstagram">Hawkstagram</h1>
@@ -23,6 +28,7 @@
                     <div class="form-group">
                         <input type="submit" class="form-control btn btn-red" value="Login" id="username" name="register">
                     </div>
+                    <span><?php echo $error; ?></span>
                 </form>
             </div>
 

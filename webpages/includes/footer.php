@@ -16,3 +16,4 @@
   </script>
 </body>
 </html>
+<?php mysql_close($masterdb); mysql_close($slavedb); ?>

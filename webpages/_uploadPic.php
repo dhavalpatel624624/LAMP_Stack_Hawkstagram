@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; include 'includes/dbconnect.php'?>
+<?php include 'includes/dbconnect.php';?>
 <?php
 
 //references for code:

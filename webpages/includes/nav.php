@@ -1,5 +1,3 @@
-<?php include 'header.php'; ?>
-<?php //$username = $_SESSION['username']; ?>
 <div id="nav">
     <nav id="navigation">
         <ul>
@@ -9,6 +7,7 @@
             <li><a href="viewPic.php">View Pics</a></li-->
             <li><a href="index.php">Sign In</a></li>
             <li><a href="viewPic.php">Gallery</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 </div>

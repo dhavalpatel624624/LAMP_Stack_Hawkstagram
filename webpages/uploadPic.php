@@ -1,4 +1,4 @@
-<?php include 'includes/nav.php';?>
+<?php include 'includes/header.php'; include 'includes/nav.php';?>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

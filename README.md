@@ -180,7 +180,6 @@ vagrant init database2
 vagrant up
 
 Remove mysql:
-
 sudo apt-get remove mysql-server
 
 sudo apt-get remove mysql-client
@@ -206,6 +205,8 @@ Run a mysql upgrade: (I think this helps with installing the plugins necessary f
 mysql_upgrade -u root -p
 
 Edit conf file under the [mysqld] section
+
+sudo vim /etc/mysql/my.cnf
 
 skip-eternal-locking
 

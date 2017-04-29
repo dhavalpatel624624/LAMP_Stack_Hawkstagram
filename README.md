@@ -98,7 +98,7 @@ Save
 9. sudo service mysql restart
 10. Go back into your slave DB box and do the following in a mysql prompt,
 
-Login to main database:
+sLogin to main database:
 mysql -u root -p
 
 CHANGE MASTER TO MASTER_HOST='Your MASTER IP',
@@ -135,6 +135,7 @@ Slave_SQL_Running: YES
 SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
 SLAVE START;
 
+
 Make a new line with:
 relay-log = /var/log/mysql/mysql-relay-bin.log
 
@@ -164,4 +165,51 @@ connected successfully to slave db!
  +Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table  
  +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
  +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server
+ 
+Encrypt Databases
+ 
+ First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
+vagrant package --output database2
+Go into new folder:
+vagrant init database2
+vagrant up
+
+Remove mysql:
+sudo apt-get remove mysql-server
+sudo apt-get remove mysql-client
+Update MariaDB repos for our ubuntu:
+sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.accretive-networks.net/mariadb/repo/10.2/ubuntu trusty main'
+sudo apt-get update
+sudo apt-get install mariadb-server
+Restart database:
+sudo service mysql restart (MariaDB uses same commands as MySQL)
+Run a mysql upgrade: (I think this helps with installing the plugins necessary for encryptions)
+mysql_upgrade -u root -p
+Edit conf file under the [mysqld] section
+skip-eternal-locking
+plugin-load-add=file_key_management.so
+file-key-management
+file-key-management-filename=/home/vagrant/keys.enc
+innodb-encrypt-tables=ON
+innodb-encrypt-log
+innodb-encryption-threads=4
+Save file
+Now make a file called keys.enc and just put this at the top
+1;275F957BBA71D20F42826C3854C7B869;C1845BA78881CE2DE5D1165F359F885A4E7F042850376FBC14CF0B900B
+This is a key made with openssl using the password hawkstagram123. If we want more keys we just make them with openssl put them into the file.
+Save file
+Restart the database
+sudo service mysql restart
+sudo mysql -u root -p
+Now we can go ahead and encrypt our tables4
+use hawkstagram;
+ALTER TABLE users ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
+
+Resources:
+https://downloads.mariadb.org/mariadb/repositories/#mirror=accretive&distro=Ubuntu&distro_release=trusty--ubuntu_trusty&version=10.2
+https://mariadb.com/kb/en/mariadb/data-at-rest-encryption/
+
+
  

@@ -73,6 +73,7 @@ sudo cp /var/www/team-2-hawkstagram/scripts/ssl/default-ssl.conf /etc/apache2/si
 
 sudo a2ensite default-ssl.conf
 
+echo "did it copy"
 sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache2.conf /etc/apache2
 
 sudo service apache2 restart

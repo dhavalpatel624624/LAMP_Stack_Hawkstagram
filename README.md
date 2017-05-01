@@ -51,7 +51,7 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 6. Edit Vagrantfile with the designated slave IP, database.sh script, and the following line "config.vm.network :forwarded_port, guest: 80, host: 4567"
 7. SSH into your master DB box 
 
-~~~ sudo vim /etc/mysql/my.cnf ~~~f
+~~~ sudo vim /etc/mysql/my.cnf ~~~
 
 
 *These will primarily be comments, so just uncomment them*

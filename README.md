@@ -42,7 +42,7 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 6. "vagrant up" or "vagrant reload --provision"
 7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
 
-# Slave Installation
+# Slave Installation and Setup
 1. Build packer
 2. Add the box, call it slave 
 3. Make new folder somewhere called Slave
@@ -82,7 +82,8 @@ example:
 | File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
 | --- | --- | --- | --- | 
 | mysql-bin.000001 | 107 | newdatabase | 
-| 1 row in set (0.00 sec) | 
+
+1 row in set (0.00 sec)
 
 **If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct**
 

@@ -56,22 +56,33 @@ sudo vim /etc/mysql/my.cnf
 ```
 
 *These will primarily be comments, so just uncomment them*  
-
+```
 bind-address = same IP for main database vagrant box
 server-id = 1
 log_bin = /var/log/mysql/mysql-bin.log
 bindlog_do_db = hawkstagram
+```
 
-Save file
+**Save file**
 
-Login to main database:
+**Login to main database:**
+
+```
 mysql -u root -p
+```
 
+```
 GRANT REPLICATION SLAVE ON *.* TO 'dbuser' IDENTIFIED BY 'hawkstagram123';
 FLUSH PRIVILEGES;
 SHOW MASTER STATUS;
+```
 
 example:
+
+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
+| --- | --- | --- | --- | 
+| mysql-bin.000001 | 107 | newdatabase | 
+
 +------------------+----------+--------------+------------------+
 | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
 +------------------+----------+--------------+------------------+

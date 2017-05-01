@@ -109,13 +109,12 @@ bindlog_do_db = hawkstagram
 
 **Save**
 
-9. 
-```
-sudo service mysql restart
-```
-10. Go back into your slave DB box and do the following in a mysql prompt,
+9. sudo service MySQL restart
 
-sLogin to main database:
+10. Go back into your slave DB box and do the following in a MySQL prompt,
+
+**Login to main database:**
+```
 mysql -u root -p
 
 CHANGE MASTER TO MASTER_HOST='Your MASTER IP',
@@ -127,47 +126,59 @@ MASTER_LOG_POS=  107; (Your pos number from earlier)
 STOP SLAVE;
 
 RESET SLAVE;
+```
 
 11. Now make an edit on the master database such as inserting a new user
-
+```
 INSERT INTO users (username, email, salted_password, first_name, last_name, date_created, date_updated)
 VALUES ('Toad', 'toad@hawk.iit.edu', 'password', 'Toad', 'Toad', NOW(), NOW());
+```
 
 12. Now on the SLAVE database:
-
+```
 SELECT * FROM users; 
+```
 
-It should show the newly added user. If not, in mysql use the command: use hawkstagram;
+It should show the newly added user. If not, in MySQL use the command: use hawkstagram;
 
 13. This command will show the status of the slave:
+```
 SHOW SLAVE STATUS\G 
-
-The top should say "Waiting for master to send event." and
-
+```
+The top should say "Waiting for master to send event."
+```
 Slave_IO_Running: YES 
 Slave_SQL_Running: YES
+```
 
-*If you are having issues with the slave database, please run these commands:
+**If you are having issues with the slave database, please run these commands in the MySQL prompt:**
 
+```
 SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
 SLAVE START;
+```
 
-
-Make a new line with:
+Make a new line in the /etc/mysql/my.cnf file :
 relay-log = /var/log/mysql/mysql-relay-bin.log
 
 # Integrating Webserver to Slave and Master DB
 
 1. SSH into your three boxes
 2. In WEBSERVER, cd /var/www/html/webpages/includes
-3. sudo vim dbconnect.php and change the IPs to your salve and master db
-4. In MASTER DB, login to mysql: 
+3. sudo vim dbconnect.php and change the IPs to your slave and master db
+4. In MASTER DB, login to MySQL: 
+```
 mysql -u root -p 
 GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'hawkstagram123';
+```
 
-5. In SLAVE DB, login to mysql:
+5. In SLAVE DB, login to MySQL:
+
+```
 mysql -u root -p 
 GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'hawkstagram123';
+```
+
 
 6. In your WEBSERVER, test if your database is connected:
 cd /var/www/html/webpages/includes
@@ -177,16 +188,10 @@ php dbconnect.php
 You should get: 
 Connected successfully to master db!
 connected successfully to slave db!
-
-# Reference Links
- +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-mysql/  
- +Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table  
- +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
- +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server
  
 # Encrypt Databases (Uses MariaDB due to issues with MySQL 5.5 encryption)
  
- First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
+First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
 
 vagrant package --output database2
 
@@ -196,7 +201,7 @@ vagrant init database2
 
 vagrant up
 
-Remove mysql:
+Remove MySQL:
 sudo apt-get remove mysql-server
 
 sudo apt-get remove mysql-client
@@ -217,7 +222,7 @@ Restart database:
 
 sudo service mysql restart (MariaDB uses same commands as MySQL)
 
-Run a mysql upgrade: (I think this helps with installing the plugins necessary for encryptions)
+Run a MySQL upgrade: (I think this helps with installing the plugins necessary for encryptions)
 
 mysql_upgrade -u root -p
 
@@ -261,9 +266,13 @@ use hawkstagram;
 
 ALTER TABLE users ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
 
-Resources:
-https://downloads.mariadb.org/mariadb/repositories/#mirror=accretive&distro=Ubuntu&distro_release=trusty--ubuntu_trusty&version=10.2
-https://mariadb.com/kb/en/mariadb/data-at-rest-encryption/
+# Reference Links
+ +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-MySQL/  
+ +Using Triggers for Updating Timestamps http://stackoverflow.com/questions/6576989/two-MySQL-timestamp-columns-in-one-table  
+ +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
+ +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server  
+ +MariaDB Install https://downloads.mariadb.org/mariadb/repositories/#mirror=accretive&distro=Ubuntu&distro_release=trusty--ubuntu_trusty&version=10.2  
+ +MariaDB Encryption https://mariadb.com/kb/en/mariadb/data-at-rest-encryption/
 
 
  

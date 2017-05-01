@@ -60,7 +60,7 @@ sudo vim /etc/mysql/my.cnf
 bind-address = same IP for main database vagrant box
 server-id = 1
 log_bin = /var/log/mysql/mysql-bin.log
-bindlog_do_db = hawkstagram
+binlog_do_db = hawkstagram
 ```
 
 **Save file**
@@ -105,12 +105,12 @@ sudo vim /etc/mysql/my.cnf
 bind-address = IP address for slave DB vagrant box
 server-id = 2
 log_bin = /var/log/mysql/mysql-bin.log
-bindlog_do_db = hawkstagram
+binlog_do_db = hawkstagram
 ```
 
 **Save**
 
-9. sudo service MySQL restart
+9. sudo service mysql  restart
 
 10. Go back into your slave DB box and do the following in a MySQL prompt,
 
@@ -131,6 +131,9 @@ RESET SLAVE;
 
 11. Now make an edit on the master database such as inserting a new user
 ```
+mysql -u root -p
+use hawkstagram;
+
 INSERT INTO users (username, email, salted_password, first_name, last_name, date_created, date_updated)
 VALUES ('Toad', 'toad@hawk.iit.edu', 'password', 'Toad', 'Toad', NOW(), NOW());
 ```
@@ -186,10 +189,8 @@ cd /var/www/html/webpages/includes
 
 php dbconnect.php
 
-You should get: 
-Connected successfully to master db!
-connected successfully to slave db!
- 
+You should get no error messages, if there is an error then an error "echo" will appear.
+
 # Encrypt Databases (Uses MariaDB due to issues with MySQL 5.5 encryption)
  
 First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.

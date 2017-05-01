@@ -249,7 +249,7 @@ plugin-load-add=file_key_management.so
 file-key-management
 file-key-management-filename=/home/vagrant/keys.enc
 innodb-encrypt-tables=ON
-innodb-encrypt-log
+innodb-encrypt-log=ON
 innodb-encryption-threads=4
 ```
 

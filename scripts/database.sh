@@ -8,8 +8,8 @@ DBNAME=hawkstagram
 DBUSER=dbuser
 DBPASSWD=hawkstagram123
 HOST=$(hostname)
-GITUSER=keunglh
-GITPASS=Lap123456
+GITUSER=ENTERHERE
+GITPASS=ENTERHERE
 
 echo "==================================================="
 echo "Preparing MySQL..."

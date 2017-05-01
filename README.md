@@ -185,66 +185,73 @@ GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'h
 
 
 6. In your WEBSERVER, test if your database is connected:
-cd /var/www/html/webpages/includes
 
+```
+cd /var/www/html/webpages/includes
 php dbconnect.php
+```
 
 You should get no error messages, if there is an error then an error "echo" will appear.
 
 # Encrypt Databases (Uses MariaDB due to issues with MySQL 5.5 encryption)
  
-First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
+1. First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
 
+```
 vagrant package --output database2
+```
 
-Go into new folder:
+2. Go into new folder:
 
+```
 vagrant init database2
-
 vagrant up
+vagrant ssh
+```
 
-Remove MySQL:
+3. Remove MySQL:
+
+```
 sudo apt-get remove mysql-server
-
 sudo apt-get remove mysql-client
+```
 
 Update MariaDB repos for our ubuntu:
-
+```
 sudo apt-get install software-properties-common
-
 sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
-
 sudo add-apt-repository 'deb [arch=amd64,i386,ppc64el] http://mirrors.accretive-networks.net/mariadb/repo/10.2/ubuntu trusty main'
-
 sudo apt-get update
-
 sudo apt-get install mariadb-server
+```
 
 Restart database:
 
+```
 sudo service mysql restart (MariaDB uses same commands as MySQL)
+```
 
 Run a MySQL upgrade: (I think this helps with installing the plugins necessary for encryptions)
 
+```
 mysql_upgrade -u root -p
+```
 
 Edit conf file under the [mysqld] section
 
+```
 sudo vim /etc/mysql/my.cnf
+```
 
+```
 skip-eternal-locking
-
 plugin-load-add=file_key_management.so
-
 file-key-management
-
 file-key-management-filename=/home/vagrant/keys.enc
-
 innodb-encrypt-tables=ON
-
 innodb-encrypt-log
-
 innodb-encryption-threads=4
+```
 
 Save file
 

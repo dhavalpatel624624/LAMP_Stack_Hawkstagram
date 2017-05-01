@@ -167,7 +167,7 @@ connected successfully to slave db!
  +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
  +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server
  
-Encrypt Databases
+# Encrypt Databases (Uses MariaDB due to issues with MySQL 5.5 encryption)
  
  First you should copy your original database box and make a new vagrant box in a different folder to do this just in case anything screws up.
 

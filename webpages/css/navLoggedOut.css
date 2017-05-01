@@ -14,13 +14,11 @@ nav#navigation ul li {
 }
 nav#navigation ul li a {
     display: block;
-    background-color: #Cf0015;
     color: #fff;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
     width: 100px;
-    padding: 10px 5px 8px 5px;
     margin-bottom: 4px;
     border-radius: 4px;
 }
@@ -47,49 +45,6 @@ nav#navigation ul li a:hover {
     top: 0;
 }
 
-/******************Nav Bar********************
-
-#nav {
-    top: 0;
-    width: 100%;
-    ext-align: center;
-    clear: both;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2));
-}
-ul {
-    padding: 10px;
-    height: 10%;
-    margin: 0 5% 2% 5%;
-    text-align: center;
-    display: inline-block;
-    list-style-type: none;
-    width: 90%;
-
-}
-
-li {
-    display: inline;
-    float: left;
-}
-
-a {
-    display: inline-block;
-    width: 100px;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px 0;
-    color: white;
-}
-
-li:hover {
-    background-color: lightgray;
-}
-
-a#openup {
-    display: none;
-}
-
-****************Nav Bar***********************/
 p#Name{
     font-family: 'Fredericka the Great', cursive;
     font-size: 150%;
@@ -102,3 +57,26 @@ p#Name{
     clear: right;
     margin: 0 0 2% 0;
     background-color: #181c16;}
+
+@media screen and (max-device-width: 850px) {
+    nav {
+        height: auto;
+        border-bottom: 0;
+    }
+    li {
+        float: left;
+        position: relative;
+    }
+    nav#navigation ul li a {
+        display: block;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        width: 100px;
+        margin-bottom: 4px;
+        border-radius: 4px;
+    }
+
+
+}

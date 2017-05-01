@@ -244,7 +244,7 @@ sudo vim /etc/mysql/my.cnf
 ```
 **Add under the [mysqld] section**
 ```
-skip-eternal-locking
+skip-external-locking
 plugin-load-add=file_key_management.so
 file-key-management
 file-key-management-filename=/home/vagrant/keys.enc

@@ -72,15 +72,12 @@ echo "==================================================="
 echo "Importing mySQL tables and data "
 echo "==================================================="
 cd team-2-hawkstagram/sql/
-mysql -u root -p$DBPASSWD hawkstagram
-DROP TRIGGER t;
-mysql -u root -p$DBPASSWD <<trigger_statement
-use hawkstagram CREATE TRIGGER saltPass BEFORE INSERT ON users FOR EACH ROW SET NEW.salted_password = SHA2(NEW.salted_password, 224)
-trigger_statement
+mysql -u root -p$DBPASSWD hawkstagram -e "DROP TRIGGER saltPass"
+mysql -u root -p$DBPASSWD hawkstagram -e "CREATE TRIGGER saltPass BEFORE INSERT ON users FOR EACH ROW SET NEW.salted_password = SHA2(NEW.salted_password, 224)"
+mysql -u root -p$DBPASSWD hawkstagram -e "SHOW TRIGGERS"
 mysql -u root -p$DBPASSWD hawkstagram < hawkstagram.sql
 mysql -u root -p$DBPASSWD hawkstagram < dummydata.sql
 cd ..
-
 
 echo "==================================================="
 echo "Finished provisioning."

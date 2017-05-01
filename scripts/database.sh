@@ -68,6 +68,8 @@ echo "What's In The Directory?"
 echo "==================================================="
 ls
 
+sudo mkdir /var/www/uploads
+
 echo "==================================================="
 echo "Importing mySQL tables and data "
 echo "==================================================="

@@ -13,7 +13,7 @@
     <div class="container">
         <div id="boxes" class="col">
             <div class="IITSignIn form-box">
-                <form action="uploadPic.php" method="post">
+                <form action="" method="post">
                     <div class="text-center">
                         <h2 id="loginIITHeader">Illinois Tech Login</h2>
                     </div>
@@ -34,7 +34,7 @@
 
             <div class="outsideSign-In form-box">
                 <h3>Not a Student?</h3>
-                <div class="fb-login-button " data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+                <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
             </div>
         </div>
 

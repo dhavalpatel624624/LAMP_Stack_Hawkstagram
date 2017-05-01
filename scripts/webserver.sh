@@ -14,6 +14,7 @@ echo "==================================================="
 
 sudo rm -rf /var/www
 sudo mkdir /var/www
+sudo mkdir /var/www/uploads
 sudo mkdir /var/www/html
 sudo ln -fs /vagrant/public /var/www
 echo "ServerName $HOSTNAME" | sudo tee -a /etc/apache2/apache2.conf

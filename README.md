@@ -234,7 +234,7 @@ sudo service mysql restart (MariaDB uses same commands as MySQL)
 Run a MySQL upgrade: (I think this helps with installing the plugins necessary for encryptions)
 
 ```
-mysql_upgrade -u root -p
+sudo mysql_upgrade -u root -p
 ```
 
 Edit conf file under the [mysqld] section
@@ -242,7 +242,7 @@ Edit conf file under the [mysqld] section
 ```
 sudo vim /etc/mysql/my.cnf
 ```
-
+**Add under the [mysqld] section**
 ```
 skip-eternal-locking
 plugin-load-add=file_key_management.so
@@ -253,27 +253,32 @@ innodb-encrypt-log
 innodb-encryption-threads=4
 ```
 
-Save file
+**Save file**
 
 Now make a file called keys.enc and just put this at the top
-
 1;275F957BBA71D20F42826C3854C7B869;C1845BA78881CE2DE5D1165F359F885A4E7F042850376FBC14CF0B900B
+
+```
+echo "1;275F957BBA71D20F42826C3854C7B869;C1845BA78881CE2DE5D1165F359F885A4E7F042850376FBC14CF0B900B" > keys.enc
+ls -l
+cat keys.enc
+```
 
 This is a key made with openssl using the password hawkstagram123. If we want more keys we just make them with openssl put them into the file.
 
-Save file
+**Save file/Restart the database**
 
-Restart the database
-
+```
 sudo service mysql restart
-
 sudo mysql -u root -p
+```
 
-Now we can go ahead and encrypt our tables4
+Now we can go ahead and encrypt our tables
 
+```
 use hawkstagram;
-
 ALTER TABLE users ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
+```
 
 # Reference Links
  +Updating and creating timestamps with MySQL http://gusiev.com/2009/04/update-and-create-timestamps-with-MySQL/  

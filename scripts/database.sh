@@ -8,8 +8,8 @@ DBNAME=hawkstagram
 DBUSER=dbuser
 DBPASSWD=hawkstagram123
 HOST=$(hostname)
-GITUSER=ENTERHERE
-GITPASS=ENTERHERE
+GITUSER=keunglh
+GITPASS=Lap123456
 
 echo "==================================================="
 echo "Preparing MySQL..."
@@ -72,12 +72,15 @@ echo "==================================================="
 echo "Importing mySQL tables and data "
 echo "==================================================="
 cd team-2-hawkstagram/sql/
-mysql -u root -p$DBPASSWD hawkstagram < hawkstagram.sql
+mysql -u root -p$DBPASSWD hawkstagram
+DROP TRIGGER t;
 mysql -u root -p$DBPASSWD <<trigger_statement
-use hawkstagram CREATE TRIGGER t BEFORE INSERT ON users FOR EACH ROW SET NEW.salted_password = SHA2(NEW.salted_password, 224)
+use hawkstagram CREATE TRIGGER saltPass BEFORE INSERT ON users FOR EACH ROW SET NEW.salted_password = SHA2(NEW.salted_password, 224)
 trigger_statement
+mysql -u root -p$DBPASSWD hawkstagram < hawkstagram.sql
 mysql -u root -p$DBPASSWD hawkstagram < dummydata.sql
 cd ..
+
 
 echo "==================================================="
 echo "Finished provisioning."

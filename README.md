@@ -139,7 +139,7 @@ SLAVE START;
 Make a new line with:
 relay-log = /var/log/mysql/mysql-relay-bin.log
 
-#Integrating Webserver to Slave and Master DB
+# Integrating Webserver to Slave and Master DB
 
 1. SSH into your three boxes
 2. In WEBSERVER, cd /var/www/html/webpages/includes

@@ -82,34 +82,37 @@ example:
 | File | Position | Binlog_Do_DB | Binlog_Ignore_DB |
 | --- | --- | --- | --- | 
 | mysql-bin.000001 | 107 | newdatabase | 
+| 1 row in set (0.00 sec) | 
 
-+------------------+----------+--------------+------------------+
-| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
-+------------------+----------+--------------+------------------+
-| mysql-bin.000001 |      107 | newdatabase  |                  |
-+------------------+----------+--------------+------------------+
-1 row in set (0.00 sec)
-
-*If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct
+**If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct**
 
 Take note of the "000001" and the position, they may be different from this example. 
 
+```
 UNLOCK TABLES;
 
 QUIT;
+```
 
 8. Go back to the slave DB box, since you should already have a Hawkstagram db already from the initializing shell script do the following things. 
 
+```
 sudo vim /etc/mysql/my.cnf
+```
 
+```
 bind-address = IP address for slave DB vagrant box
 server-id = 2
 log_bin = /var/log/mysql/mysql-bin.log
 bindlog_do_db = hawkstagram
+```
 
-Save
+**Save**
 
-9. sudo service mysql restart
+9. 
+```
+sudo service mysql restart
+```
 10. Go back into your slave DB box and do the following in a mysql prompt,
 
 sLogin to main database:

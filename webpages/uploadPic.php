@@ -5,12 +5,12 @@
             <div class="panel panel-primary">
                 <div class="panelHead text-center"><h2 id="photoUpload">Photo Upload</h2></div>
                 <div class="panel-body">
-                    <form class="" action="_uploadPic.php" method="post" enctype="multipart/form-data">
+                    <form class="" action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="photo" class="control-label">Choose Photos:</label>
                             <input type="hidden" name="MAX_FILE_SIZE" value="10000000"/>
                             <input type="file" class="form-control" id="photo" name="photo">
-                        </div>;
+                        </div>
                         <div class="form-group">
                             <label for="description" class="control-label">Write Description:</label>
                             <textarea class="form-control" id="description" name="description" placeholder="Where was this picture taken? What was the name of the event?" rows="8" cols="40"></textarea>

@@ -15,7 +15,7 @@ file_get_contents($file_path);
                 <div class="panel-body">
                     <div class="col-md-12">
                         <?php
-                            echo '<img src="' . htmlspecialchars($file_path) . '"/>"';
+                            echo '<img src="' . htmlspecialchars($file_path) . '"/>';
                         ?>
                     </div>
                 </div>

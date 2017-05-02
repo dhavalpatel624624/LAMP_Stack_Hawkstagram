@@ -49,7 +49,7 @@ function upload() {
               //if(strpos(mime_content_type($_FILES['photo']['tmp_name']),"image")===0) {
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 if(strpos(finfo_file($finfo, $_FILES['photo']['tmp_name']),"image")===0) {
-                  $uploaddir = '/var/www/uploads/';
+                  $uploaddir = '/var/www/webpages/uploads/';
                   $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
 
                   if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {

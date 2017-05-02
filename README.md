@@ -87,6 +87,10 @@ example:
 
 **If you do not see this example, first try to restart the mysql service, as well as confirm that the IP address in the my.cnf file is correct**
 
+```
+sudo service mysql restart
+```
+
 Take note of the "000001" and the position, they may be different from this example. 
 
 ```
@@ -127,7 +131,15 @@ MASTER_LOG_POS=  107; (Your pos number from earlier)
 STOP SLAVE;
 
 RESET SLAVE;
+
+START SLAVE;
 ```
+**If you are having issues with the slave database, please run these commands in the MySQL prompt:**
+
+```
+SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
+```
+
 
 11. Now make an edit on the master database such as inserting a new user
 ```
@@ -155,13 +167,6 @@ Slave_IO_Running: YES
 Slave_SQL_Running: YES
 ```
 
-**If you are having issues with the slave database, please run these commands in the MySQL prompt:**
-
-```
-SET GLOBAL SQL_SLAVE_SKIP_COUNTER = 5;
-SLAVE START;
-```
-
 Make a new line in the /etc/mysql/my.cnf file :
 relay-log = /var/log/mysql/mysql-relay-bin.log
 
@@ -169,8 +174,14 @@ relay-log = /var/log/mysql/mysql-relay-bin.log
 
 1. SSH into your three boxes
 2. In WEBSERVER, cd /var/www/html/webpages/includes
-3. sudo vim dbconnect.php and change the IPs to your slave and master db
+3. Change the IPs to your slave and master db
+
+```
+sudo vim dbconnect.php
+```
+
 4. In MASTER DB, login to MySQL: 
+
 ```
 mysql -u root -p 
 GRANT INSERT, SELECT ON hawkstagram.* TO ''@'your webserver IP' identified by 'hawkstagram123';

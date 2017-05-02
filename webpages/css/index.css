@@ -19,8 +19,9 @@ html{
 body {
     font-family: 'Josefin Slab', serif;
     font-size: 16px;
-    background: #edeae6 url("images/innovation.jpg") no-repeat center ;
+    background: url("../images/innovation.jpg") no-repeat center ;
     background-size: cover;
+    z-index: 0;
 }
 input{
     float: none;
@@ -33,6 +34,7 @@ input{
     background-image: linear-gradient(rgba(0, 0, 0, 0.72),rgba(0, 0, 0, 0.2));
     background-size: cover;
     width: 100%;
+    color: white;
 }
 .sidebar{
     border-right: 2px dashed #181c16;
@@ -52,7 +54,7 @@ input{
     margin: 0 15px 0 15px;
 }
 a {
-    color: #00F;
+    color: #181c16;
     text-decoration: underline;
 }
 
@@ -305,5 +307,26 @@ img.resize{
         color: #181c16;
         margin-top: 5%;
         letter-spacing: 2px;
+    }
+    btn {
+        background: #Cf0015;
+        background-image: -webkit-linear-gradient(top, #Cf0015, #941919);
+        background-image: -moz-linear-gradient(top, #Cf0015, #941919);
+        background-image: -ms-linear-gradient(top, #Cf0015, #941919);
+        background-image: -o-linear-gradient(top, #Cf0015, #941919);
+        background-image: linear-gradient(to bottom, #Cf0015, #941919);
+        -webkit-border-radius: 28px;
+        -moz-border-radius: 28px;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+
+    .btn:hover {
+        background: #521b0c;
+        text-decoration: none;
     }
 }

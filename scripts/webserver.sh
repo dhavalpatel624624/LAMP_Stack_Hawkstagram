@@ -14,7 +14,6 @@ echo "==================================================="
 
 sudo rm -rf /var/www
 sudo mkdir /var/www
-sudo mkdir /var/www/html/webpages/uploads
 sudo mkdir /var/www/html
 sudo ln -fs /vagrant/public /var/www
 echo "ServerName $HOSTNAME" | sudo tee -a /etc/apache2/apache2.conf
@@ -67,6 +66,7 @@ sudo a2enmod ssl
 sudo service apache2 restart
 
 sudo mkdir /etc/apache2/ssl
+sudo mkdir /var/www/html/webpages/uploads
 
 sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache.crt /etc/apache2/ssl
 sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache.key /etc/apache2/ssl
@@ -74,7 +74,6 @@ sudo cp /var/www/team-2-hawkstagram/scripts/ssl/default-ssl.conf /etc/apache2/si
 
 sudo a2ensite default-ssl.conf
 
-echo "did it copy"
 sudo cp /var/www/team-2-hawkstagram/scripts/ssl/apache2.conf /etc/apache2
 
 sudo service apache2 restart

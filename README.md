@@ -15,32 +15,61 @@ Doug Rubio - Security/Operations ->  X=196/197/203
 
 # Packer Setup
 1. Go into the install folder
-2. "packer build ubuntu14045-webserver"
-3. "packer build ubuntu14045-database"
-4. "packer build ubuntu14045-slave" 
-5. Let packer run, you should now have three box images in the build folder, one for the database, webserver and slave
-6. "vagrant box add packer_output.box --name webserver"
-7. "vagrant box add packer_output.box --name database"
-8. "vagrant box add packer_output.box --name slave"
-9. (OPTIONAL) "vagrant box list" to confirm that you correctly added the two boxes
+2. Packer Build
+
+```
+packer build ubuntu14045-webserver
+packer build ubuntu14045-database
+packer build ubuntu14045-slave
+```
+
+3. Let packer run, you should now have three box images in the build folder, one for the database, webserver and slave
+4. Add these boxes into vagrant
+
+```
+vagrant box add packer_output.box --name webserver
+vagrant box add packer_output.box --name database
+vagrant box add packer_output.box --name slave
+```
+
+9. (OPTIONAL) "vagrant box list" to confirm that you correctly added the three boxes
 
 # Webserver Installation
 1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init webserver"
-2. config.vm.provision :shell, path: "../scripts/webserver.sh" -- change pathfile to scripts folder depending on where box is initialized
-3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
+2. Change pathfile to scripts folder depending on where box is initialized
+
+```
+config.vm.provision :shell, path: "../scripts/webserver.sh"
+config.vm.network "public_network", ip: "192.168.1.X"
+```
+3. Make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.
-6. "vagrant up" or "vagrant reload --provision"
-7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
+
+```
+vagrant up or vagrant reload --provision
+vagrant ssh
+```
+
+6. Make sure you let each box vagrant up itself first, otherwise you may run into errors. If you do, let one box finish spinning up and then spin up the second.
 
 # Database Installation
 1. Make sure you edit the vagrantfiles with the correct box name, or "vagrant init database"
-2. config.vm.provision :shell, path: "../scripts/database.sh" -- change pathfile to scripts folder depending on where box is initialized
-3. config.vm.network "public_network", ip: "192.168.1.X" -- make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
+2. Change pathfile to scripts folder depending on where box is initialized
+
+```
+config.vm.provision :shell, path: "../scripts/database.sh"
+config.vm.network "public_network", ip: "192.168.1.X"
+```
+
+3. Make sure you set it up with your assigned IP address, otherwise you can refer to http://askubuntu.com/questions/470237/assigning-a-static-ip-to-ubuntu-server-14-04-lts
 4. Look at the credentials of the provisioner file, those are defaults, change them as you like
 5. Edit the appropriate shell script for the GITUSER and GITPASS fields at the top so the provisioner can automate git cloning.
-6. "vagrant up" or "vagrant reload --provision"
-7. "vagrant ssh" -- make sure you let each box vagrant up itself first, otherwise you may run into errors. if you do, let one box finish spinning up and then spin up the second.
+
+```
+vagrant up or vagrant reload --provision
+vagrant ssh
+```
 
 # Slave Installation and Setup
 1. Build packer
@@ -258,10 +287,8 @@ sudo vim /etc/mysql/my.cnf
 skip-external-locking
 plugin-load-add=file_key_management.so
 file-key-management
-file-key-management-filename=/home/vagrant/keys.enc
-innodb-encrypt-tables=ON
-innodb-encrypt-log=ON
-innodb-encryption-threads=4
+file-key-management-filename=/home/vagrant/keys.txt
+file-key-management-encryption-algorithm=aes_ctr
 ```
 
 **Save file**

@@ -84,16 +84,16 @@ function upload() {
         else{
             $msg="File not uploaded successfully.";
         }
-    }
+        }
     else {
         $msg= file_upload_error_message($_FILES['photo']['error']);
     }
     return $msg;
-}
+    }
 
-// Function to return error message based on error code
+  // Function to return error message based on error code
 
-function file_upload_error_message($error_code) {
+  function file_upload_error_message($error_code) {
     switch ($error_code) {
         case UPLOAD_ERR_INI_SIZE:
             return 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
@@ -112,5 +112,6 @@ function file_upload_error_message($error_code) {
         default:
             return 'Unknown upload error';
     }
-}
+  }
+  }
 ?>

@@ -297,7 +297,9 @@ ALTER TABLE users ENCRYPTED=YES ENCRYPTION_KEY_ID=1;
  +Echoing past file permissions https://ubuntuforums.org/showthread.php?t=981258  
  +MySQL command to permit webserver to access DB https://serverfault.com/questions/315985/permanent-connection-between-webserver-and-database-server  
  +MariaDB Install https://downloads.mariadb.org/mariadb/repositories/#mirror=accretive&distro=Ubuntu&distro_release=trusty--ubuntu_trusty&version=10.2  
- +MariaDB Encryption https://mariadb.com/kb/en/mariadb/data-at-rest-encryption/
+ +MariaDB Encryption https://mariadb.com/kb/en/mariadb/data-at-rest-encryption/  
+ +Secure MySQL Instattion https://gist.github.com/Mins/4602864
+ 
 
 
  

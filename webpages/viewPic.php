@@ -1,4 +1,4 @@
-<?php include 'includes/header.php'; include 'includes/nav.php';
+<?php include 'includes/header.php';
 
 //$path_parts = pathinfo($_GET['file']);
 $file_name  = 'Capture.PNG';

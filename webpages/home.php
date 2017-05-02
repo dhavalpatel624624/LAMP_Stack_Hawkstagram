@@ -43,7 +43,7 @@
                     - Pictures are not on Facebook where the whole world to see <br>
                     - Pictures acessed later so that the department keeps all graduation photos in one place throughout the years <br>
                     - Pictures from Luncheons, Formals, and Graduation are can also be stored.
-                    - One place to look for photos where starting a marketing campaign
+                    - One place to look for photos when starting a marketing campaign
 
                     <p>
 

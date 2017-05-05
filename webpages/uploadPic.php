@@ -3,7 +3,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
-                <div class="panelHead text-center"><h2 id="photoUpload">Photo Upload</h2></div>
+              <div><?php echo 'Welcome ' . $username; ?></div>
+              <div class="panelHead text-center"><h2 id="photoUpload">Photo Upload</h2></div>
                 <div class="panel-body">
                     <form class="" action="" method="post" enctype="multipart/form-data">
                         <div class="form-group">
@@ -25,3 +26,5 @@
     </div>
 </div>
 <?php include 'includes/footer.php'; ?>
+~
+~

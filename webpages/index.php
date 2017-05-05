@@ -8,7 +8,7 @@ if(isset($_SESSION['login_user'])){
         <div class="overlay">
             <div id="boxes" class="col">
                 <div class="IITSignIn form-box">
-                    <form action="uploadPic.php" method="post">
+                    <form action="" method="post">
                         <div class="text-center">
                             <h2 id="loginIITHeader">Illinois Tech Login</h2>
                         </div>
@@ -23,6 +23,7 @@ if(isset($_SESSION['login_user'])){
                         <div class="form-group">
                             <input type="submit" class="form-control btn" value="Login" id="username" name="register">
                         </div>
+                        <span><?php echo $error; ?></span>
                     </form>
                 </div>
 

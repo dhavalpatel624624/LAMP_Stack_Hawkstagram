@@ -1,6 +1,6 @@
 <?php include 'includes/dbconnect.php';?>
 <?php
-
+session_start();
 //references for code:
 //http://stackoverflow.com/questions/6106470/php-convert-a-blob-into-an-image-file
 //http://php.net/manual/en/features.file-upload.post-method.php
@@ -8,6 +8,8 @@
 //http://packetcode.com/article/preventing-sql-injection-php-security
 
 // check if a file was submitted
+$username = $_SESSION['login_user'];
+$user_id = $_SESSION['user_id'];
 if(!isset($_FILES['photo']))
 {
     echo '<p>Please select a file</p>';
@@ -49,26 +51,28 @@ function upload() {
               //if(strpos(mime_content_type($_FILES['photo']['tmp_name']),"image")===0) {
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 if(strpos(finfo_file($finfo, $_FILES['photo']['tmp_name']),"image")===0) {
-                  $uploaddir = '/var/www/html/webpages/uploads/';
-                  $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+                  //$uploaddir = 'uploads/';
+                  //$uploadfile = $uploaddir . basename($_FILES['photo']['name']);
 
-                  if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
+                  //if(move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)){
 
                   // prepare the image for insertion
-                  $imgData = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
-                  $imgPath = mysql_real_escape_string($_FILES["photo"]["name"]);
                   $imgSize = mysql_real_escape_string($_FILES["photo"]["size"]);
-                  mysql_select_db($dbname, $masterdb);
+                  mysql_select_db($dbname, $slavedb);
                   // put the image in the db...
                   // our sql query - STILL NEEDS TO HAVE A CORRECT USER_ID
                   $sql = "INSERT INTO photos
                   (user_id, caption, image_path, image_size, image)
                   VALUES
-                  (4, '$description', '$imgPath','$imgSize', '$imgData')";
+                  ('$user_id', '$description', '$imgPath','$imgSize', '$imgData')";
 
                   // insert the image
                   mysql_query($sql) or die("Error in Query: " . mysql_error());
                   $msg='<p>Image successfully saved in database with id ='. mysql_insert_id().' </p>';
+                  //}
+                  //else{
+                   // $msg="<p>failed to move the uploaded file.</p>";
+                  //}
                 }
                 else
                     $msg="<p>Uploaded file is not an image.</p>";
@@ -113,5 +117,5 @@ function upload() {
             return 'Unknown upload error';
     }
   }
-  }
+
 ?>

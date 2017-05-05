@@ -25,6 +25,7 @@
         $_SESSION['login_user']=$username; // Initializing Session
         $_SESSION['first_name']=$first_name;
         $_SESSION['last_name']=$last_name;
+        $_SESSION['user_id']=$user_id;
         header("location: uploadPic.php"); // Redirecting To Other Page
       } 
       else {
